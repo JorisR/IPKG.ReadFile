@@ -8,11 +8,10 @@ namespace IPGK.ReadFile
 {
     public class XmlFile : File
     {
-        private readonly ISecurityService _securityService;
 
-        public XmlFile(IEncryption encryption, ISecurityService securityService) : base(encryption)
+
+        public XmlFile(IEncryption encryption, ISecurityService securityService) : base(encryption, securityService)
         {
-            _securityService = securityService;
         }
         public override string Read(string location)
         {
@@ -20,11 +19,6 @@ namespace IPGK.ReadFile
             return xmlString;
         }
 
-        public string ReadSecure(string location, UserRole userRole)
-        {
-            if (!_securityService.HasAccessToFile(location, userRole))
-                return "No Access";
-            return Read(location);
-        }
+
     }
 }

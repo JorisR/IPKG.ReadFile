@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IPGK.ReadFile.Encryption;
+using IPGK.ReadFile.Security;
 
 namespace IPGK.ReadFile
 {
     public class FlatFile : File
     {
-        public FlatFile(IEncryption encryption) :base(encryption)
+        public FlatFile(IEncryption encryption, ISecurityService securityService) :base(encryption, securityService)
         {
         }
 
