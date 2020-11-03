@@ -13,7 +13,7 @@ namespace IPGK.ReadFile
             var encryption = new ReverseEncryption();
             var security = new SecurityService();
 
-            var file = new FlatFile(encryption, security);
+            var file = new Json(encryption, security);
             Console.Write(file.ReadSecure(fileName, UserRole.Admin));
 
         }
