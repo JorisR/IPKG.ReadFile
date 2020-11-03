@@ -23,8 +23,7 @@ namespace IPGK.ReadFile
 
         public string ReadEncrypted(string file)
         {
-            var lines = System.IO.File.ReadAllLines(file);
-            var text = string.Join(",", lines);
+            var text = Read(file);
             return _encryption.Encrypt(text);
         }
     }

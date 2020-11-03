@@ -1,5 +1,6 @@
 ﻿using System;
 using IPGK.ReadFile.Encryption;
+using IPGK.ReadFile.Security;
 
 namespace IPGK.ReadFile
 {
@@ -10,8 +11,10 @@ namespace IPGK.ReadFile
             Console.WriteLine("Give the file to read");
             var fileName = Console.ReadLine();
             var encryption = new ReverseEncryption();
-            var file = new FlatFile(encryption);
-            Console.Write(file.ReadEncrypted(fileName));
+            var security = new SecurityService();
+
+            var file = new XmlFile(security);
+            Console.Write(file.ReadSecure(fileName, UserRole.Stage));
 
         }
 
