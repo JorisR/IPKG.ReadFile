@@ -6,25 +6,16 @@ using IPGK.ReadFile.Encryption;
 
 namespace IPGK.ReadFile
 {
-    public class FlatFile
+    public class FlatFile : File
     {
-        private readonly IEncryption _encryption;
-
-        public FlatFile(IEncryption encryption)
+        public FlatFile(IEncryption encryption) :base(encryption)
         {
-            _encryption = encryption;
         }
 
-        public string Read(string file)
+        public override string Read(string file)
         {
             var lines = System.IO.File.ReadAllLines(file);
             return string.Join(",", lines);
-        }
-
-        public string ReadEncrypted(string file)
-        {
-            var text = Read(file);
-            return _encryption.Encrypt(text);
         }
     }
 }

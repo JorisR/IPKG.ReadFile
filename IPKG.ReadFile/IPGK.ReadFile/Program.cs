@@ -13,8 +13,8 @@ namespace IPGK.ReadFile
             var encryption = new ReverseEncryption();
             var security = new SecurityService();
 
-            var file = new XmlFile(security);
-            Console.Write(file.ReadSecure(fileName, UserRole.Stage));
+            var file = new XmlFile(encryption, security);
+            Console.Write(file.ReadEncrypted(fileName));
 
         }
 
