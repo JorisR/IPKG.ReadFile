@@ -17,6 +17,12 @@ namespace IPGK.ReadFile
             _securityService = securityService;
         }
 
+        public string ReadFile(string file, bool readEncrypted, bool readSecure, UserRole userRole)
+        {
+            var text = readSecure ? ReadSecure(file, userRole) : Read(file);
+            return readEncrypted ? ReadEncrypted(file) : text;
+        }
+
         public abstract string Read(string file);
 
         public string ReadEncrypted(string file)

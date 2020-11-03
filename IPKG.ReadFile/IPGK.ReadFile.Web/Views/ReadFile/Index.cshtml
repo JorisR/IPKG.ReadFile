@@ -1,0 +1,28 @@
+﻿@using IPGK.ReadFile.Security
+@using IPGK.ReadFile.Web.Models
+@model IPGK.ReadFile.Web.Models.ReadFileModel
+@using (Html.BeginForm())
+{
+@Html.TextBoxFor(x=> x.File)
+
+@Html.DropDownListFor(m => m.FileType,
+    new SelectList(Enum.GetValues(typeof(FileType))),
+    "Select File type")
+
+<div class="checkbox">
+    <label> @Html.CheckBoxFor(x=> x.UseEncryption)&nbsp;@Html.DisplayNameFor(x => x.UseEncryption)</label>
+</div>
+
+<div class="checkbox">
+    <label> @Html.CheckBoxFor(x=> x.UseSecurity)&nbsp;@Html.DisplayNameFor(x => x.UseSecurity)</label>
+</div>
+
+
+
+@Html.DropDownListFor(m => m.UserRole,
+    new SelectList(Enum.GetValues(typeof(UserRole))),
+    "Select user role")
+
+    <input type="submit" value="Process" class="btn btn-default" />
+
+}
