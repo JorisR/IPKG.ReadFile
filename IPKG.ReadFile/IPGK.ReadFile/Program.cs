@@ -8,7 +8,7 @@ namespace IPGK.ReadFile
         {
             Console.WriteLine("Give the file to read");
             var fileName = Console.ReadLine();
-            var file = new FlatFile();
+            var file = new XmlFile();
             Console.Write(file.Read(fileName));
 
         }
